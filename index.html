@@ -7,156 +7,158 @@
   <meta name="Generator" content="Cocoa HTML Writer">
   <meta name="CocoaVersion" content="2575.7">
   <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFontMonospaced'; color: #0e0e0e}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px '.AppleSystemUIFontMonospaced'; color: #0e0e0e; min-height: 17.0px}
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Times; color: #0c0c0c; -webkit-text-stroke: #0c0c0c}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Times; color: #0c0c0c; -webkit-text-stroke: #0c0c0c; min-height: 18.0px}
+    span.s1 {font-kerning: none}
+    span.s2 {font: 14.0px 'Songti TC'; font-kerning: none}
   </style>
 </head>
 <body>
-<p class="p1">&lt;!doctype html&gt;</p>
-<p class="p1">&lt;html lang="zh-Hant"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1">&lt;meta charset="utf-8"&gt;</p>
-<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</p>
-<p class="p1">&lt;title&gt;事件填寫表單&lt;/title&gt;</p>
-<p class="p1">&lt;meta name="color-scheme" content="light dark"&gt;</p>
-<p class="p1">&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>:root{</p>
-<p class="p1"><span class="Apple-converted-space">    </span>--pad:16px;--card-max:560px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>--glass-bg:rgba(255,255,255,.35);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>--glass-stroke:rgba(255,255,255,.6);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>--glass-shadow:0 12px 32px rgba(0,0,0,.15);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>--field-bg:rgba(255,255,255,.45);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>--field-stroke:rgba(0,0,0,.06);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>--text:#0b0b0c;--muted:#5b5c60;--accent:#007aff;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>--backdrop-blur:blur(24px) saturate(140%);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>@media (prefers-color-scheme:dark){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>:root{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--glass-bg:rgba(30,30,32,.35);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--glass-stroke:rgba(255,255,255,.25);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--glass-shadow:0 12px 36px rgba(0,0,0,.6);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--field-bg:rgba(255,255,255,.08);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--field-stroke:rgba(255,255,255,.08);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--text:#f5f5f7;--muted:#a1a1a6;--accent:#0a84ff;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>*{box-sizing:border-box}html,body{height:100%}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>body{</p>
-<p class="p1"><span class="Apple-converted-space">    </span>margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--text);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>background:</p>
-<p class="p1"><span class="Apple-converted-space">      </span>radial-gradient(1200px 800px at 10% -10%, rgba(0,122,255,.12), transparent 60%),</p>
-<p class="p1"><span class="Apple-converted-space">      </span>radial-gradient(1000px 900px at 110% 20%, rgba(88,86,214,.12), transparent 60%),</p>
-<p class="p1"><span class="Apple-converted-space">      </span>linear-gradient(180deg, rgba(0,0,0,.02), transparent 30%),</p>
-<p class="p1"><span class="Apple-converted-space">      </span>linear-gradient(180deg, rgba(127,127,127,.03), rgba(127,127,127,.03));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.safe{padding:env(safe-area-inset-top,0) var(--pad) env(safe-area-inset-bottom,0);min-height:100%;display:flex;align-items:flex-start;justify-content:center}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.card{</p>
-<p class="p1"><span class="Apple-converted-space">    </span>width:100%;margin-top:18px;border-radius:22px;background:var(--glass-bg);box-shadow:var(--glass-shadow);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>border:1px solid var(--glass-stroke);-webkit-backdrop-filter:var(--backdrop-blur);backdrop-filter:var(--backdrop-blur);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>padding:18px;overflow:hidden;clip-path:inset(0 round 22px)</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>@media (min-width:768px){.card{max-width:var(--card-max);margin-top:32px}}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.title{margin:2px 2px 14px;font-size:22px;font-weight:700}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.hint{margin:-6px 2px 12px;color:var(--muted);font-size:13px}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>label{display:block;margin:14px 2px 6px;font-weight:600}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>input,textarea,button{width:100%;max-width:100%;display:block;font-size:17px;padding:12px;border-radius:14px;border:1px solid var(--field-stroke);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>background:var(--field-bg);color:var(--text);outline:none;transition:box-shadow .18s ease,border-color .18s ease,background-color .18s ease}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>input[type="date"]{-webkit-appearance:none;appearance:none;padding:10px 12px;line-height:1.2;font-variant-numeric:tabular-nums;background-clip:padding-box;min-width:0}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>input[type="date"]::-webkit-date-and-time-value{text-align:left;padding:0}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>textarea{min-height:150px;resize:vertical}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>input:focus,textarea:focus{border-color:color-mix(in oklab,var(--accent) 45%, transparent);box-shadow:0 0 0 2px color-mix(in oklab,var(--accent) 18%, transparent);background:color-mix(in oklab,var(--field-bg) 92%, var(--accent) 8%)}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.group{margin:6px 0 8px; display:flex; gap:10px; flex-wrap:wrap}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.radio-pill{position:relative}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.radio-pill input{position:absolute; opacity:0; inset:0}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.radio-pill label{display:inline-flex; align-items:center; gap:8px;padding:10px 14px; border-radius:999px; cursor:pointer;border:1px solid var(--field-stroke); background:var(--field-bg)}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.radio-pill input:focus + label{outline:none; box-shadow:0 0 0 2px color-mix(in oklab,var(--accent) 18%, transparent);border-color:color-mix(in oklab,var(--accent) 45%, transparent)}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.radio-pill input:checked + label{border-color: color-mix(in oklab,var(--accent) 60%, transparent);background: color-mix(in oklab,var(--field-bg) 85%, var(--accent) 15%)}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.small{font-size:12px;color:var(--muted);margin-top:8px}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.invalid{ border-color:#ff3b30 !important; box-shadow:0 0 0 2px rgba(255,59,48,.25) !important; }</p>
-<p class="p1">&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="safe"&gt;&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="title"&gt;事件填寫表單&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hint"&gt;玻璃風格介面 · A–E 一次填完送出&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;form id="f" novalidate&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;label&gt;事件類型 &lt;span class="small"&gt;（單選）&lt;/span&gt;&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="group" role="radiogroup" aria-label="事件類型"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="radio-pill"&gt;&lt;input type="radio" id="etype1" name="etype" value="提醒項目" required&gt;&lt;label for="etype1"&gt;提醒項目&lt;/label&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="radio-pill"&gt;&lt;input type="radio" id="etype2" name="etype" value="業務事項" required&gt;&lt;label for="etype2"&gt;業務事項&lt;/label&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;label for="a"&gt;A：日期&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;input id="a" type="date" required&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;label for="b"&gt;B：單位&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;input id="b" type="text" placeholder="請輸入單位"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;label for="c"&gt;C：客戶&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;input id="c" type="text" placeholder="請輸入客戶"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;label for="d"&gt;D：品項&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;input id="d" type="text" placeholder="請輸入品項"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;label for="e"&gt;E：事件&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;textarea id="e" placeholder="請詳述事件內容（可多行）" required&gt;&lt;/textarea&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button type="submit"&gt;送出&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="small"&gt;提示：若日期正確可直接填 B–E；需更改可點擊上方欄位。&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/form&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;script&gt;</p>
-<p class="p1">// 預設日期 = 今天</p>
-<p class="p1">(function setToday(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const pad = n =&gt; String(n).padStart(2,'0')</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const d = new Date()</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('a').value = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`</p>
-<p class="p1">})()</p>
-<p class="p2"><br></p>
-<p class="p1">// 將資料送到 Google Apps Script（把 YOUR_GAS_URL 換成你的部署網址）</p>
-<p class="p1">const GAS_URL = "https://script.google.com/macros/s/AKfycbwzMAgcqCzIEJ-gsprh57mRt9QAHtf-jEvHI_4hvefBMmzR0SrydRZIlCQNiwJiMo8/exec";</p>
-<p class="p2"><br></p>
-<p class="p1">document.getElementById('f').addEventListener('submit', async (evt)=&gt;{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>evt.preventDefault();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const picked = document.querySelector('input[name="etype"]:checked')</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const eField = document.getElementById('e')</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const eValue = eField.value.trim()</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(!picked){ alert('請先選擇「事件類型」。'); return }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(!eValue){ eField.classList.add('invalid'); eField.focus(); alert('「事件」為必填，請輸入內容。'); return }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const payload = {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>"事件類型": picked.value,</p>
-<p class="p1"><span class="Apple-converted-space">    </span>"日期": document.getElementById('a').value,</p>
-<p class="p1"><span class="Apple-converted-space">    </span>"單位": document.getElementById('b').value || "",</p>
-<p class="p1"><span class="Apple-converted-space">    </span>"客戶": document.getElementById('c').value || "",</p>
-<p class="p1"><span class="Apple-converted-space">    </span>"品項": document.getElementById('d').value || "",</p>
-<p class="p1"><span class="Apple-converted-space">    </span>"事件": eValue</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>try{</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const res = await fetch(GAS_URL, {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>method: 'POST',</p>
-<p class="p1"><span class="Apple-converted-space">      </span>headers: { 'Content-Type': 'application/json' },</p>
-<p class="p1"><span class="Apple-converted-space">      </span>body: JSON.stringify(payload)</p>
-<p class="p1"><span class="Apple-converted-space">    </span>})</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const data = await res.json()</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if(data.ok){</p>
-<p class="p1"><span class="Apple-converted-space">      </span>alert('已送出！')</p>
-<p class="p1"><span class="Apple-converted-space">      </span>// 可選：送出後清空</p>
-<p class="p1"><span class="Apple-converted-space">      </span>// document.getElementById('f').reset()</p>
-<p class="p1"><span class="Apple-converted-space">      </span>// 或者：回到上一頁 / 轉跳</p>
-<p class="p1"><span class="Apple-converted-space">      </span>// location.href = 'thanks.html'</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}else{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>alert('送出失敗：' + (data.error || '未知錯誤'))</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}catch(err){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>alert('連線失敗，請稍後再試：' + err)</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1">})</p>
-<p class="p1">&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+<p class="p1"><span class="s1">&lt;!doctype html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="zh-Hant"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;meta charset="utf-8"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;title&gt;</span><span class="s2">事件填寫表單</span><span class="s1">&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1">&lt;meta name="color-scheme" content="light dark"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>:root{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>--pad:16px;--card-max:560px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>--glass-bg:rgba(255,255,255,.35);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>--glass-stroke:rgba(255,255,255,.6);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>--glass-shadow:0 12px 32px rgba(0,0,0,.15);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>--field-bg:rgba(255,255,255,.45);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>--field-stroke:rgba(0,0,0,.06);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>--text:#0b0b0c;--muted:#5b5c60;--accent:#007aff;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>--backdrop-blur:blur(24px) saturate(140%);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>@media (prefers-color-scheme:dark){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>:root{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>--glass-bg:rgba(30,30,32,.35);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>--glass-stroke:rgba(255,255,255,.25);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>--glass-shadow:0 12px 36px rgba(0,0,0,.6);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>--field-bg:rgba(255,255,255,.08);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>--field-stroke:rgba(255,255,255,.08);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>--text:#f5f5f7;--muted:#a1a1a6;--accent:#0a84ff;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>*{box-sizing:border-box}html,body{height:100%}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>body{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--text);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>radial-gradient(1200px 800px at 10% -10%, rgba(0,122,255,.12), transparent 60%),</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>radial-gradient(1000px 900px at 110% 20%, rgba(88,86,214,.12), transparent 60%),</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>linear-gradient(180deg, rgba(0,0,0,.02), transparent 30%),</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>linear-gradient(180deg, rgba(127,127,127,.03), rgba(127,127,127,.03));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.safe{padding:env(safe-area-inset-top,0) var(--pad) env(safe-area-inset-bottom,0);min-height:100%;display:flex;align-items:flex-start;justify-content:center}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.card{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>width:100%;margin-top:18px;border-radius:22px;background:var(--glass-bg);box-shadow:var(--glass-shadow);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>border:1px solid var(--glass-stroke);-webkit-backdrop-filter:var(--backdrop-blur);backdrop-filter:var(--backdrop-blur);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>padding:18px;overflow:hidden;clip-path:inset(0 round 22px)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>@media (min-width:768px){.card{max-width:var(--card-max);margin-top:32px}}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.title{margin:2px 2px 14px;font-size:22px;font-weight:700}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.hint{margin:-6px 2px 12px;color:var(--muted);font-size:13px}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>label{display:block;margin:14px 2px 6px;font-weight:600}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>input,textarea,button{width:100%;max-width:100%;display:block;font-size:17px;padding:12px;border-radius:14px;border:1px solid var(--field-stroke);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>background:var(--field-bg);color:var(--text);outline:none;transition:box-shadow .18s ease,border-color .18s ease,background-color .18s ease}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>input[type="date"]{-webkit-appearance:none;appearance:none;padding:10px 12px;line-height:1.2;font-variant-numeric:tabular-nums;background-clip:padding-box;min-width:0}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>input[type="date"]::-webkit-date-and-time-value{text-align:left;padding:0}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>textarea{min-height:150px;resize:vertical}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>input:focus,textarea:focus{border-color:color-mix(in oklab,var(--accent) 45%, transparent);box-shadow:0 0 0 2px color-mix(in oklab,var(--accent) 18%, transparent);background:color-mix(in oklab,var(--field-bg) 92%, var(--accent) 8%)}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.group{margin:6px 0 8px; display:flex; gap:10px; flex-wrap:wrap}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.radio-pill{position:relative}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.radio-pill input{position:absolute; opacity:0; inset:0}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.radio-pill label{display:inline-flex; align-items:center; gap:8px;padding:10px 14px; border-radius:999px; cursor:pointer;border:1px solid var(--field-stroke); background:var(--field-bg)}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.radio-pill input:focus + label{outline:none; box-shadow:0 0 0 2px color-mix(in oklab,var(--accent) 18%, transparent);border-color:color-mix(in oklab,var(--accent) 45%, transparent)}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.radio-pill input:checked + label{border-color: color-mix(in oklab,var(--accent) 60%, transparent);background: color-mix(in oklab,var(--field-bg) 85%, var(--accent) 15%)}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.small{font-size:12px;color:var(--muted);margin-top:8px}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.invalid{ border-color:#ff3b30 !important; box-shadow:0 0 0 2px rgba(255,59,48,.25) !important; }</span></p>
+<p class="p1"><span class="s1">&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="safe"&gt;&lt;div class="card"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="title"&gt;</span><span class="s2">事件填寫表單</span><span class="s1">&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="hint"&gt;</span><span class="s2">玻璃風格介面</span><span class="s1"> · A–E </span><span class="s2">一次填完送出</span><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;form id="f" novalidate&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;label&gt;</span><span class="s2">事件類型</span><span class="s1"> &lt;span class="small"&gt;</span><span class="s2">（單選）</span><span class="s1">&lt;/span&gt;&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="group" role="radiogroup" aria-label="</span><span class="s2">事件類型</span><span class="s1">"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="radio-pill"&gt;&lt;input type="radio" id="etype1" name="etype" value="</span><span class="s2">提醒項目</span><span class="s1">" required&gt;&lt;label for="etype1"&gt;</span><span class="s2">提醒項目</span><span class="s1">&lt;/label&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="radio-pill"&gt;&lt;input type="radio" id="etype2" name="etype" value="</span><span class="s2">業務事項</span><span class="s1">" required&gt;&lt;label for="etype2"&gt;</span><span class="s2">業務事項</span><span class="s1">&lt;/label&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;label for="a"&gt;A</span><span class="s2">：日期</span><span class="s1">&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;input id="a" type="date" required&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;label for="b"&gt;B</span><span class="s2">：單位</span><span class="s1">&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;input id="b" type="text" placeholder="</span><span class="s2">請輸入單位</span><span class="s1">"&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;label for="c"&gt;C</span><span class="s2">：客戶</span><span class="s1">&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;input id="c" type="text" placeholder="</span><span class="s2">請輸入客戶</span><span class="s1">"&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;label for="d"&gt;D</span><span class="s2">：品項</span><span class="s1">&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;input id="d" type="text" placeholder="</span><span class="s2">請輸入品項</span><span class="s1">"&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;label for="e"&gt;E</span><span class="s2">：事件</span><span class="s1">&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;textarea id="e" placeholder="</span><span class="s2">請詳述事件內容（可多行）</span><span class="s1">" required&gt;&lt;/textarea&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button type="submit"&gt;</span><span class="s2">送出</span><span class="s1">&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="small"&gt;</span><span class="s2">提示：若日期正確可直接填</span><span class="s1"> B–E</span><span class="s2">；需更改可點擊上方欄位。</span><span class="s1">&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/form&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;script&gt;</span></p>
+<p class="p1"><span class="s1">// </span><span class="s2">預設日期</span><span class="s1"> = </span><span class="s2">今天</span></p>
+<p class="p1"><span class="s1">(function setToday(){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const pad = n =&gt; String(n).padStart(2,'0')</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const d = new Date()</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('a').value = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`</span></p>
+<p class="p1"><span class="s1">})()</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// </span><span class="s2">將資料送到</span><span class="s1"> Google Apps Script</span><span class="s2">（把</span><span class="s1"> YOUR_GAS_URL </span><span class="s2">換成你的部署網址）</span></p>
+<p class="p1"><span class="s1">const GAS_URL = "https://script.google.com/macros/s/AKfycbwzMAgcqCzIEJ-gsprh57mRt9QAHtf-jEvHI_4hvefBMmzR0SrydRZIlCQNiwJiMo8/exec";</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">document.getElementById('f').addEventListener('submit', async (evt)=&gt;{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>evt.preventDefault();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const picked = document.querySelector('input[name="etype"]:checked')</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const eField = document.getElementById('e')</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const eValue = eField.value.trim()</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if(!picked){ alert('</span><span class="s2">請先選擇「事件類型」。</span><span class="s1">'); return }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if(!eValue){ eField.classList.add('invalid'); eField.focus(); alert('</span><span class="s2">「事件」為必填，請輸入內容。</span><span class="s1">'); return }</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const payload = {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"</span><span class="s2">事件類型</span><span class="s1">": picked.value,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"</span><span class="s2">日期</span><span class="s1">": document.getElementById('a').value,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"</span><span class="s2">單位</span><span class="s1">": document.getElementById('b').value || "",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"</span><span class="s2">客戶</span><span class="s1">": document.getElementById('c').value || "",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"</span><span class="s2">品項</span><span class="s1">": document.getElementById('d').value || "",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"</span><span class="s2">事件</span><span class="s1">": eValue</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>try{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const res = await fetch(GAS_URL, {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>method: 'POST',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>headers: { 'Content-Type': 'application/json' },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>body: JSON.stringify(payload)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>})</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const data = await res.json()</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if(data.ok){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>alert('</span><span class="s2">已送出！</span><span class="s1">')</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>// </span><span class="s2">可選：送出後清空</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>// document.getElementById('f').reset()</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>// </span><span class="s2">或者：回到上一頁</span><span class="s1"> / </span><span class="s2">轉跳</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>// location.href = 'thanks.html'</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}else{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>alert('</span><span class="s2">送出失敗：</span><span class="s1">' + (data.error || '</span><span class="s2">未知錯誤</span><span class="s1">'))</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}catch(err){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>alert('</span><span class="s2">連線失敗，請稍後再試：</span><span class="s1">' + err)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1">})</span></p>
+<p class="p1"><span class="s1">&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
 </body>
 </html>
